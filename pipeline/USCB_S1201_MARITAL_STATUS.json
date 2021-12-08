@@ -15,7 +15,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Copy data1",
+							"name": "Load_S1201_data",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
