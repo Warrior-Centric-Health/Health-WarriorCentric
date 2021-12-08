@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Cureted_CencusData/Output",
+				"folderPath": "OUTPUT",
 				"container": "cencusdata"
 			},
 			"columnDelimiter": ",",
