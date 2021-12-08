@@ -1,0 +1,31 @@
+{
+	"name": "Incr_Testinput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": "Cureted_CencusData/INPUT",
+				"container": "cencusdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

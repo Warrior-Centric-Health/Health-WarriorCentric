@@ -1,0 +1,22 @@
+{
+	"name": "IncrTest_Op_Test",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Blob_Input_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Cureted_CencusData/Output",
+				"container": "cencusdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
