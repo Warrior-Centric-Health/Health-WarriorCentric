@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "CHR_Dataload",
+				"name": "DMDC_Dataload",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -36,120 +36,346 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "State FIPS Code",
+									"name": "HHS Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State FIPS Code",
+									"name": "HHS Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "County FIPS Code",
+									"name": "AHA Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County FIPS Code",
+									"name": "AHA Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "5-digit FIPS Code",
+									"name": "TRICARE Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "5-digit FIPS Code",
+									"name": "TRICARE Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "State Abbreviation",
+									"name": "VIZIENT Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "State Abbreviation",
+									"name": "VIZIENT Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Name",
+									"name": "USCB",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "CountyName",
+									"name": "USCB",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Release Year",
+									"name": "CCN Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Release Year",
+									"name": "CCN Regions",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Sort",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sort",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "County Ranked (Yes=1/No=0)",
+									"name": "Abbrv",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "County Ranked (Yes=1/No=0)",
+									"name": "State Abbrv",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Army ",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AD-Army",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Navy ",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AD-Navy",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Marine Corps ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AD-Marine Corps",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Air Force ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AD-Air Force",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Coast Guard ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AD-Coast Guard",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Space Force ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AD-Space Force",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " Active Duty - TOTAL ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Active Duty - TOTAL",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Primary care physicians numerator",
+									"name": "Army NG",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "PCP",
+									"name": "Army NG",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Army Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Army Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Navy Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Navy Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "USMC Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "USMC Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Air Force NG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Air Force NG",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Air Force Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Air Force Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Coast Guard Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Coast Guard Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Space Force Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Space Force Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "National Guard - TOTAL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "National Guard - TOTAL",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " Reserves - TOTAL ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Reserves - TOTAL",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Natl Guard & Reserves - TOTAL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Natl Guard & Reserves - TOTAL",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL Force",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TOTAL Force",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "Dentists numerator",
+									"name": "Year",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "DCP",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "Mental health providers numerator",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "MHP",
+									"name": "Year",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -164,13 +390,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "CHR_IP_DS",
+						"referenceName": "DMDC_IP_DS",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "CHR_OP_DS",
+						"referenceName": "DMDC_OP_DS",
 						"type": "DatasetReference"
 					}
 				]
@@ -180,7 +406,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "CHR_Dataload",
+						"activity": "DMDC_Dataload",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -284,7 +510,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "CHR_Dataload",
+						"activity": "DMDC_Dataload",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -388,7 +614,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "CHR_Dataload",
+						"activity": "DMDC_Dataload",
 						"dependencyConditions": [
 							"Failed"
 						]
