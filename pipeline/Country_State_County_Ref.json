@@ -1,0 +1,125 @@
+{
+	"name": "Country_State_County_Ref",
+	"properties": {
+		"activities": [
+			{
+				"name": "Country_State_County_Ref_Dataload",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Country",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Country",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State Code(FIPS CODE)",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State Name ",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "County Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County CODE",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "County Name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "County_Ref_IP_DS",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "County_Ref_OP_DS",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "USCB"
+		},
+		"annotations": [],
+		"lastPublishTime": "2021-12-06T09:26:47Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
