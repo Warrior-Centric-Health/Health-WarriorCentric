@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "USCB_S1201_MARITAL_STATUS",
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach1",
+				"name": "LOAD_USCB_S1201_MARITAL_STATUS",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -36,10 +36,23 @@
 									}
 								},
 								"sink": {
-									"type": "SqlDWSink",
-									"sqlWriterUseTableLock": false
+									"type": "SqlDWSink"
 								},
 								"enableStaging": false,
+								"logSettings": {
+									"enableCopyActivityLog": true,
+									"copyActivityLogSettings": {
+										"logLevel": "Info",
+										"enableReliableLogging": true
+									},
+									"logLocationSettings": {
+										"linkedServiceName": {
+											"referenceName": "Cencus_Blob_Input_Ls",
+											"type": "LinkedServiceReference"
+										},
+										"path": "cencus"
+									}
+								},
 								"translator": {
 									"type": "TabularTranslator",
 									"mappings": [
@@ -179,6 +192,9 @@
 					"s1201_4C_Tract"
 				]
 			}
+		},
+		"folder": {
+			"name": "USCB"
 		},
 		"annotations": []
 	}
