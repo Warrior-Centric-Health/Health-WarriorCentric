@@ -13,6 +13,46 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/Metadata_GDX_OP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [
+					{
+						"name": "Required Column Names(RAW)",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Meta Data",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Display Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Friendly Column Names(Data)- PROCESSED",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Friendly Column Names(Report)",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "M_GDX"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Metadata_URBAN_RURAL_IP_DS')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -284,19 +324,25 @@
 					"referenceName": "Cencus_Blob_Input_Ls",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"Sheetname": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
-				"type": "DelimitedText",
+				"type": "Excel",
 				"typeProperties": {
+					"sheetName": {
+						"value": "@dataset().Sheetname",
+						"type": "Expression"
+					},
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "USCB_S1201_08_12_2019.csv",
+						"fileName": "S1201_Merged.xlsx",
 						"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
 						"container": "data"
 					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
+					"firstRowAsHeader": true
 				},
 				"schema": []
 			},
@@ -1808,139 +1854,6 @@
 								"type": "Expression"
 							}
 						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"folder": {
-					"name": "USCB"
-				},
-				"annotations": [],
-				"lastPublishTime": "2021-12-06T09:26:47Z"
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Country_State_County_Ref')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Country_State_County_Ref_Dataload",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "SqlDWSink"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "Country",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Country",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "State Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "State Code(FIPS CODE)",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "State Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "State Name ",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "County Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "County CODE",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "County Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "County Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "County_Ref_IP_DS",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "County_Ref_OP_DS",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
 					}
 				],
 				"policy": {

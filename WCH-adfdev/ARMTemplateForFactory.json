@@ -2081,6 +2081,667 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DMDC')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "DMDC_Dataload",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "SqlDWSink",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "HHS Regions",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "HHS Regions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "AHA Regions",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "AHA Regions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "TRICARE Regions",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TRICARE Regions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "VIZIENT Regions",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "VIZIENT Regions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "USCB",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "USCB",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "CCN Regions",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CCN Regions",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Sort",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Sort",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "Abbrv",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State Abbrv",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "State",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": " AD-Army ",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AD-Army",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": " AD-Navy ",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AD-Navy",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": " AD-Marine Corps ",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "AD-Marine Corps",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": " AD-Air Force ",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "AD-Air Force",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": " AD-Coast Guard ",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "AD-Coast Guard",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": " AD-Space Force ",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "AD-Space Force",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": " Active Duty - TOTAL ",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Active Duty - TOTAL",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "Army NG",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Army NG",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Army Res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Army Res",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Navy Res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Navy Res",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "USMC Res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "USMC Res",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Air Force NG",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Air Force NG",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Air Force Res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Air Force Res",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Coast Guard Res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Coast Guard Res",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Space Force Res",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Space Force Res",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "National Guard - TOTAL",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "National Guard - TOTAL",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": " Reserves - TOTAL ",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Reserves - TOTAL",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Natl Guard & Reserves - TOTAL",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Natl Guard & Reserves - TOTAL",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "TOTAL Force",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TOTAL Force",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "Year",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Year",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "DMDC_IP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DMDC_OP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Log Sucesses",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "DMDC_Dataload",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[Usp_audit_Log]",
+							"storedProcedureParameters": {
+								"adfName": {
+									"value": {
+										"value": "@pipeline().DataFactory",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Errors": {
+									"value": null,
+									"type": "String"
+								},
+								"ExecDate": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								},
+								"PipelineName": {
+									"value": {
+										"value": "@pipeline().Pipeline",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"RowCopied": {
+									"value": {
+										"value": "@activity('DMDC_Dataload').output.rowsRead",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"RowRead": {
+									"value": {
+										"value": "@activity('DMDC_Dataload').output.rowsCopied",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"runid": {
+									"value": {
+										"value": "@pipeline().RunId",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Source": {
+									"value": null,
+									"type": "String"
+								},
+								"Target": {
+									"value": null,
+									"type": "String"
+								},
+								"throughPut": {
+									"value": {
+										"value": "@activity('DMDC_Dataload').output.throughPut",
+										"type": "Expression"
+									},
+									"type": "Decimal"
+								},
+								"triggerName": {
+									"value": {
+										"value": "@pipeline().TriggerName",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"triggerTime": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "Cencus_Output_Ls",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Log Failure",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "DMDC_Dataload",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[Usp_audit_Log]",
+							"storedProcedureParameters": {
+								"adfName": {
+									"value": {
+										"value": "@pipeline().DataFactory",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Errors": {
+									"value": null,
+									"type": "String"
+								},
+								"ExecDate": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								},
+								"PipelineName": {
+									"value": {
+										"value": "@pipeline().Pipeline",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"RowCopied": {
+									"value": {
+										"value": "@activity('DMDC_Dataload').output.rowsRead",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"RowRead": {
+									"value": {
+										"value": "@activity('DMDC_Dataload').output.rowsCopied",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"runid": {
+									"value": {
+										"value": "@pipeline().RunId",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Source": {
+									"value": null,
+									"type": "String"
+								},
+								"Target": {
+									"value": null,
+									"type": "String"
+								},
+								"throughPut": {
+									"value": {
+										"value": "@activity('DMDC_Dataload').output.throughPut",
+										"type": "Expression"
+									},
+									"type": "Decimal"
+								},
+								"triggerName": {
+									"value": {
+										"value": "@pipeline().TriggerName",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"triggerTime": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "Cencus_Output_Ls",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Mail send",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "DMDC_Dataload",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": "https://prod-10.northcentralus.logic.azure.com:443/workflows/9579b5105bb2494eb35fc128d2eb6517/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=w0h60ol0DAeR2lDkwKPJUr5VFL6EGd-CTb0Nfj3oHgs",
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('DMDC_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "USCB"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-12-06T09:26:47Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/DMDC_IP_DS')]",
+				"[concat(variables('factoryId'), '/datasets/DMDC_OP_DS')]",
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/FOIA VHA')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -6453,463 +7114,190 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/USCB_S1201_MARTIAL_STATUS')]",
+			"name": "[concat(parameters('factoryName'), '/USCB_S1201_MARITAL_STATUS')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"activities": [
 					{
-						"name": "LOAD_USCB_S1201_MARTIAL_STATUS",
-						"type": "Copy",
+						"name": "LOAD_USCB_S1201_MARITAL_STATUS",
+						"type": "ForEach",
 						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
 						"userProperties": [],
 						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "SqlDWSink",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"logSettings": {
-								"enableCopyActivityLog": true,
-								"copyActivityLogSettings": {
-									"logLevel": "Info",
-									"enableReliableLogging": true
-								},
-								"logLocationSettings": {
-									"linkedServiceName": {
-										"referenceName": "Cencus_Blob_Input_Ls",
-										"type": "LinkedServiceReference"
-									},
-									"path": "cencus"
-								}
-							},
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "GEO_ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "GEO_ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "NAME",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "NAME",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "S1201_C02_002E",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "TMV_PER_MAR",
-											"type": "Decimal",
-											"physicalType": "decimal",
-											"scale": 2,
-											"precision": 18
-										}
-									},
-									{
-										"source": {
-											"name": "S1201_C02_009E",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "TFV_PER_MAR",
-											"type": "Decimal",
-											"physicalType": "decimal",
-											"scale": 2,
-											"precision": 18
-										}
-									},
-									{
-										"source": {
-											"name": "State Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "State Code",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "State Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "State Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "County Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "County Code",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "County Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "County Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Tract Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Tract Code",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "Tract Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Tract Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "File Source Name",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "File Source Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Year",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Year",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "USCB_S1201_MARTIAL_STATUS_IP_DS",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "USCB_S1201_MARTIAL_STATUS_OP_DS",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "Log Sucesses",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "LOAD_USCB_S1201_MARTIAL_STATUS",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[Usp_audit_Log]",
-							"storedProcedureParameters": {
-								"adfName": {
-									"value": {
-										"value": "@pipeline().DataFactory",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"Errors": {
-									"value": null,
-									"type": "String"
-								},
-								"ExecDate": {
-									"value": {
-										"value": "@pipeline().TriggerTime",
-										"type": "Expression"
-									},
-									"type": "DateTime"
-								},
-								"PipelineName": {
-									"value": {
-										"value": "@pipeline().Pipeline",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"RowCopied": {
-									"value": {
-										"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.rowsCopied",
-										"type": "Expression"
-									},
-									"type": "Int32"
-								},
-								"RowRead": {
-									"value": {
-										"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.rowsRead",
-										"type": "Expression"
-									},
-									"type": "Int32"
-								},
-								"runid": {
-									"value": {
-										"value": "@pipeline().RunId",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"Source": {
-									"value": null,
-									"type": "String"
-								},
-								"Target": {
-									"value": null,
-									"type": "String"
-								},
-								"throughPut": {
-									"value": {
-										"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.throughPut",
-										"type": "Expression"
-									},
-									"type": "Decimal"
-								},
-								"triggerName": {
-									"value": {
-										"value": "@pipeline().TriggerName",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"triggerTime": {
-									"value": {
-										"value": "@pipeline().TriggerTime",
-										"type": "Expression"
-									},
-									"type": "DateTime"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Log Failure",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "LOAD_USCB_S1201_MARTIAL_STATUS",
-								"dependencyConditions": [
-									"Failed"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[Usp_audit_Log]",
-							"storedProcedureParameters": {
-								"adfName": {
-									"value": {
-										"value": "@pipeline().DataFactory",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"Errors": {
-									"value": null,
-									"type": "String"
-								},
-								"ExecDate": {
-									"value": {
-										"value": "@pipeline().TriggerTime",
-										"type": "Expression"
-									},
-									"type": "DateTime"
-								},
-								"PipelineName": {
-									"value": {
-										"value": "@pipeline().Pipeline",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"RowCopied": {
-									"value": {
-										"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.rowsCopied",
-										"type": "Expression"
-									},
-									"type": "Int32"
-								},
-								"RowRead": {
-									"value": {
-										"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.rowsRead",
-										"type": "Expression"
-									},
-									"type": "Int32"
-								},
-								"runid": {
-									"value": {
-										"value": "@pipeline().RunId",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"Source": {
-									"value": null,
-									"type": "String"
-								},
-								"Target": {
-									"value": null,
-									"type": "String"
-								},
-								"throughPut": {
-									"value": {
-										"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.throughPut",
-										"type": "Expression"
-									},
-									"type": "Decimal"
-								},
-								"triggerName": {
-									"value": {
-										"value": "@pipeline().TriggerName",
-										"type": "Expression"
-									},
-									"type": "String"
-								},
-								"triggerTime": {
-									"value": {
-										"value": "@pipeline().TriggerTime",
-										"type": "Expression"
-									},
-									"type": "DateTime"
-								}
-							}
-						},
-						"linkedServiceName": {
-							"referenceName": "Cencus_Output_Ls",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Mail send",
-						"type": "WebActivity",
-						"dependsOn": [
-							{
-								"activity": "LOAD_USCB_S1201_MARTIAL_STATUS",
-								"dependencyConditions": [
-									"Failed"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"url": "https://prod-10.northcentralus.logic.azure.com:443/workflows/9579b5105bb2494eb35fc128d2eb6517/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=w0h60ol0DAeR2lDkwKPJUr5VFL6EGd-CTb0Nfj3oHgs",
-							"method": "POST",
-							"headers": {},
-							"body": {
-								"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('LOAD_USCB_S1201_MARTIAL_STATUS').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+							"items": {
+								"value": "@variables('Sheetnames')",
 								"type": "Expression"
-							}
+							},
+							"isSequential": true,
+							"activities": [
+								{
+									"name": "Load_S1201_data",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "7.00:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "ExcelSource",
+											"storeSettings": {
+												"type": "AzureBlobStorageReadSettings",
+												"recursive": true,
+												"enablePartitionDiscovery": false
+											}
+										},
+										"sink": {
+											"type": "SqlDWSink"
+										},
+										"enableStaging": false,
+										"logSettings": {
+											"enableCopyActivityLog": true,
+											"copyActivityLogSettings": {
+												"logLevel": "Info",
+												"enableReliableLogging": true
+											},
+											"logLocationSettings": {
+												"linkedServiceName": {
+													"referenceName": "Cencus_Blob_Input_Ls",
+													"type": "LinkedServiceReference"
+												},
+												"path": "cencus"
+											}
+										},
+										"translator": {
+											"type": "TabularTranslator",
+											"mappings": [
+												{
+													"source": {
+														"name": "GEO_ID"
+													},
+													"sink": {
+														"name": "GEO_ID"
+													}
+												},
+												{
+													"source": {
+														"name": "NAME"
+													},
+													"sink": {
+														"name": "NAME"
+													}
+												},
+												{
+													"source": {
+														"name": "S1201_C02_002E"
+													},
+													"sink": {
+														"name": "TMV_PER_MAR"
+													}
+												},
+												{
+													"source": {
+														"name": "S1201_C02_009E"
+													},
+													"sink": {
+														"name": "TFV_PER_MAR"
+													}
+												},
+												{
+													"source": {
+														"name": "State Code"
+													},
+													"sink": {
+														"name": "State Code"
+													}
+												},
+												{
+													"source": {
+														"name": "State Name"
+													},
+													"sink": {
+														"name": "State Name"
+													}
+												},
+												{
+													"source": {
+														"name": "County Code"
+													},
+													"sink": {
+														"name": "County Code"
+													}
+												},
+												{
+													"source": {
+														"name": "County Name"
+													},
+													"sink": {
+														"name": "County Name"
+													}
+												},
+												{
+													"source": {
+														"name": "Tract Code"
+													},
+													"sink": {
+														"name": "Tract Code"
+													}
+												},
+												{
+													"source": {
+														"name": "Tract Name"
+													},
+													"sink": {
+														"name": "Tract Name"
+													}
+												},
+												{
+													"source": {
+														"name": "File Source Name"
+													},
+													"sink": {
+														"name": "File Source Name"
+													}
+												},
+												{
+													"source": {
+														"name": "Year"
+													},
+													"sink": {
+														"name": "Year"
+													}
+												}
+											],
+											"typeConversion": true,
+											"typeConversionSettings": {
+												"allowDataTruncation": true,
+												"treatBooleanAsNumber": false
+											}
+										}
+									},
+									"inputs": [
+										{
+											"referenceName": "USCB_S1201_MARTIAL_STATUS_IP_DS",
+											"type": "DatasetReference",
+											"parameters": {
+												"Sheetname": {
+													"value": "@item()",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "USCB_S1201_MARTIAL_STATUS_OP_DS",
+											"type": "DatasetReference",
+											"parameters": {}
+										}
+									]
+								}
+							]
 						}
 					}
 				],
@@ -6917,16 +7305,24 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
+				"variables": {
+					"Sheetnames": {
+						"type": "Array",
+						"defaultValue": [
+							"s1201_4C_state",
+							"s1201_4C_county",
+							"s1201_4C_Tract"
+						]
+					}
+				},
 				"folder": {
 					"name": "USCB"
 				},
-				"annotations": [],
-				"lastPublishTime": "2021-12-08T06:10:36Z"
+				"annotations": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_OP_DS')]",
-				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]",
 				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
 			]
 		},
@@ -7649,30 +8045,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Wait1",
-						"type": "Wait",
-						"dependsOn": [],
-						"userProperties": [],
-						"typeProperties": {
-							"waitTimeInSeconds": 1
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {},
-					"cancelAfter": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/B21001_IP_DS')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -8014,6 +8386,173 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "Country_State_County_Ref"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_WCH_DEV')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DMDC_IP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Cencus_Blob_Input_Ls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "DMDC_Region_2019.csv",
+						"folderPath": "Files/DMDC/Year/2019",
+						"container": "data"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "HHS Regions",
+						"type": "String"
+					},
+					{
+						"name": "AHA Regions",
+						"type": "String"
+					},
+					{
+						"name": "TRICARE Regions",
+						"type": "String"
+					},
+					{
+						"name": "VIZIENT Regions",
+						"type": "String"
+					},
+					{
+						"name": "USCB",
+						"type": "String"
+					},
+					{
+						"name": "CCN Regions",
+						"type": "String"
+					},
+					{
+						"name": "Sort",
+						"type": "String"
+					},
+					{
+						"name": "Abbrv",
+						"type": "String"
+					},
+					{
+						"name": "State",
+						"type": "String"
+					},
+					{
+						"name": " AD-Army ",
+						"type": "String"
+					},
+					{
+						"name": " AD-Navy ",
+						"type": "String"
+					},
+					{
+						"name": " AD-Marine Corps ",
+						"type": "String"
+					},
+					{
+						"name": " AD-Air Force ",
+						"type": "String"
+					},
+					{
+						"name": " AD-Coast Guard ",
+						"type": "String"
+					},
+					{
+						"name": " AD-Space Force ",
+						"type": "String"
+					},
+					{
+						"name": " Active Duty - TOTAL ",
+						"type": "String"
+					},
+					{
+						"name": "Army NG",
+						"type": "String"
+					},
+					{
+						"name": "Army Res",
+						"type": "String"
+					},
+					{
+						"name": "Navy Res",
+						"type": "String"
+					},
+					{
+						"name": "USMC Res",
+						"type": "String"
+					},
+					{
+						"name": "Air Force NG",
+						"type": "String"
+					},
+					{
+						"name": "Air Force Res",
+						"type": "String"
+					},
+					{
+						"name": "Coast Guard Res",
+						"type": "String"
+					},
+					{
+						"name": "Space Force Res",
+						"type": "String"
+					},
+					{
+						"name": "National Guard - TOTAL",
+						"type": "String"
+					},
+					{
+						"name": " Reserves - TOTAL ",
+						"type": "String"
+					},
+					{
+						"name": "Natl Guard & Reserves - TOTAL",
+						"type": "String"
+					},
+					{
+						"name": "TOTAL Force",
+						"type": "String"
+					},
+					{
+						"name": "Year",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Blob_Input_Ls')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DMDC_OP_DS')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_WCH_DEV",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlDWTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "DMDC"
 				}
 			},
 			"dependsOn": [
@@ -8749,19 +9288,25 @@
 					"referenceName": "Cencus_Blob_Input_Ls",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"Sheetname": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
-				"type": "DelimitedText",
+				"type": "Excel",
 				"typeProperties": {
+					"sheetName": {
+						"value": "@dataset().Sheetname",
+						"type": "Expression"
+					},
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "USCB_S1201_08_12_2019.csv",
+						"fileName": "S1201_Merged.xlsx",
 						"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
 						"container": "data"
 					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
+					"firstRowAsHeader": true
 				},
 				"schema": []
 			},
