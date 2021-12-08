@@ -50,7 +50,13 @@
 				"inputs": [
 					{
 						"referenceName": "Incr_Testinput",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.FileNamep",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
