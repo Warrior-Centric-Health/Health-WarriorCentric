@@ -19,7 +19,7 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"folderPath": "Cureted_CencusData/INPUT",
+				"folderPath": "INPUT",
 				"container": "cencusdata"
 			},
 			"columnDelimiter": ",",
