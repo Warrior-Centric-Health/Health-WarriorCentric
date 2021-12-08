@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "DMDC_Dataload",
+				"name": "DMDC Dataload",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -406,7 +406,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "DMDC_Dataload",
+						"activity": "DMDC Dataload",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -510,7 +510,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "DMDC_Dataload",
+						"activity": "DMDC Dataload",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -614,7 +614,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "DMDC_Dataload",
+						"activity": "DMDC Dataload",
 						"dependencyConditions": [
 							"Failed"
 						]
