@@ -354,7 +354,7 @@
 				}
 			},
 			{
-				"name": "Send Email",
+				"name": "SendEmail",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
