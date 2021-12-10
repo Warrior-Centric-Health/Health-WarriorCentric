@@ -1,0 +1,19 @@
+{
+	"name": "SourceDataset_34h",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_Test",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "*.csv",
+				"folderPath": "INPUT",
+				"container": "cencusdata"
+			}
+		}
+	}
+}
