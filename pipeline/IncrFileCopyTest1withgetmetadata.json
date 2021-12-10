@@ -119,13 +119,33 @@
 									}
 								]
 							}
+						},
+						{
+							"name": "Set variable2",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "If Condition1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "PrivioudModifiedadate",
+								"value": {
+									"value": "@activity('Get Metadata2').output.lastModified",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
 			},
 			{
-				"name": "Set variable2",
-				"type": "SetVariable",
+				"name": "Copy data1",
+				"type": "Copy",
 				"dependsOn": [
 					{
 						"activity": "ForEach1",
@@ -134,14 +154,65 @@
 						]
 					}
 				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "PrivioudModifiedadate",
-					"value": {
-						"value": "@activity('Get Metadata2').output.lastModified",
-						"type": "Expression"
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "Incr_met_Ds_Test",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@variables('LastModifiedDate')",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Incr_OP_Test",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"variables": {
