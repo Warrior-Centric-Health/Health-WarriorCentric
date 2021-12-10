@@ -85,11 +85,74 @@
 									"type": "DelimitedTextReadSettings"
 								}
 							}
+						},
+						{
+							"name": "If Condition1",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "Get Metadata2",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@greater(formatDateTime(activity('Get Metadata2').output.lastModified,'yyyyMMddHHmmss'),formatDateTime(variables('PrivioudModifiedadate'),'yyyyMMddHHmmss'))",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Set variable1",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "LastModifiedDate",
+											"value": {
+												"value": "@activity('Get Metadata2').output.ItemName",
+												"type": "Expression"
+											}
+										}
+									}
+								]
+							}
 						}
 					]
 				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "PrivioudModifiedadate",
+					"value": {
+						"value": "@activity('Get Metadata2').output.lastModified",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"LastModifiedDate": {
+				"type": "String"
+			},
+			"PrivioudModifiedadate": {
+				"type": "String",
+				"defaultValue": "1990-01-01T05:12:22Z"
+			}
+		},
 		"annotations": []
 	}
 }
