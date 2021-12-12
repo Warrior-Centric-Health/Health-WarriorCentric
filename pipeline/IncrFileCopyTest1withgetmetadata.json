@@ -75,7 +75,6 @@
 									}
 								},
 								"fieldList": [
-									"itemName",
 									"lastModified"
 								],
 								"storeSettings": {
