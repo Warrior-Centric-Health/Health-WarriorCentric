@@ -155,7 +155,7 @@
 								"type": "Expression"
 							},
 							"wildcardFolderPath": "INPUT",
-							"wildcardFileName": "*",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
