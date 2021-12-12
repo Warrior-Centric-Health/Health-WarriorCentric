@@ -121,26 +121,6 @@
 									}
 								]
 							}
-						},
-						{
-							"name": "Set variable2",
-							"type": "SetVariable",
-							"dependsOn": [
-								{
-									"activity": "If Condition1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "PrivioudModifiedadate",
-								"value": {
-									"value": "@activity('Get Metadata2').output.lastModified",
-									"type": "Expression"
-								}
-							}
 						}
 					]
 				}
