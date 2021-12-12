@@ -219,7 +219,8 @@
 		],
 		"variables": {
 			"LastModifiedDate": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "2021-12-10T11:56:06Z"
 			},
 			"PrivioudModifiedadate": {
 				"type": "String"
