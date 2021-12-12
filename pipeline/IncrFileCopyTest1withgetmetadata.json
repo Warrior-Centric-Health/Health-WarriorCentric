@@ -112,7 +112,7 @@
 										"dependsOn": [],
 										"userProperties": [],
 										"typeProperties": {
-											"variableName": "LastModifiedDatenew",
+											"variableName": "LastModifiedDate",
 											"value": {
 												"value": "@activity('Get Metadata2').output.ItemName",
 												"type": "Expression"
@@ -238,7 +238,7 @@
 			}
 		],
 		"variables": {
-			"LastModifiedDatenew": {
+			"LastModifiedDate": {
 				"type": "String"
 			},
 			"PrivioudModifiedadate": {
