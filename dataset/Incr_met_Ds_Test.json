@@ -19,7 +19,6 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"folderPath": "INPUT",
 				"container": "cencusdata"
 			},
 			"columnDelimiter": ",",
