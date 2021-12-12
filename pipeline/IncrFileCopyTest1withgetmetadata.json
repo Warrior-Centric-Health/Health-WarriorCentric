@@ -154,6 +154,7 @@
 								"value": "@variables('LastModifiedDate')",
 								"type": "Expression"
 							},
+							"wildcardFolderPath": "INPUT",
 							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
