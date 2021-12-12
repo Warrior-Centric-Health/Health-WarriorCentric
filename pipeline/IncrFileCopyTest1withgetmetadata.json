@@ -219,7 +219,8 @@
 		],
 		"variables": {
 			"LastModifiedDate": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "1990-01-01T05:12:22Z"
 			},
 			"PrivioudModifiedadate": {
 				"type": "String",
