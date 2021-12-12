@@ -210,7 +210,7 @@
 				"typeProperties": {
 					"variableName": "PrivioudModifiedadate",
 					"value": {
-						"value": "@activity('Get Metadata2').output.lastModified",
+						"value": "@variables('LastModifiedDate')",
 						"type": "Expression"
 					}
 				}
