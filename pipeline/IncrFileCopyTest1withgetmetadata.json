@@ -219,12 +219,10 @@
 		],
 		"variables": {
 			"LastModifiedDate": {
-				"type": "String",
-				"defaultValue": "2021-10-12T13:41:19Z"
+				"type": "String"
 			},
 			"PrivioudModifiedadate": {
-				"type": "String",
-				"defaultValue": "1990-01-01T05:12:22Z"
+				"type": "String"
 			}
 		},
 		"annotations": []
