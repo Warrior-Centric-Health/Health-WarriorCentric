@@ -113,7 +113,7 @@
 										"typeProperties": {
 											"variableName": "LastModifiedDate",
 											"value": {
-												"value": "@activity('Get Metadata2').output.Itemname",
+												"value": "@activity('Get Metadata2').output.name",
 												"type": "Expression"
 											}
 										}
