@@ -215,6 +215,26 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Set variable2_copy1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "PrivioudModifiedadate",
+					"value": {
+						"value": "@activity('Get Metadata2').output.lastModified",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"variables": {
