@@ -150,6 +150,11 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@variables('LastModifiedDate')",
+								"type": "Expression"
+							},
+							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -180,13 +185,7 @@
 				"inputs": [
 					{
 						"referenceName": "Incr_met_Ds_Test",
-						"type": "DatasetReference",
-						"parameters": {
-							"FileName": {
-								"value": "@variables('LastModifiedDate')",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
