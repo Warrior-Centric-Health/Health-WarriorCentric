@@ -130,7 +130,7 @@
 				]
 			},
 			{
-				"name": "Sucesses Log",
+				"name": "Log Sucesses",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -234,6 +234,110 @@
 				}
 			},
 			{
+				"name": "Log Failure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "LOAD_USCB_S1201_MARTIAL_STATUS",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[Usp_audit_Log]",
+					"storedProcedureParameters": {
+						"adfName": {
+							"value": {
+								"value": "@pipeline().DataFactory",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Errors": {
+							"value": null,
+							"type": "String"
+						},
+						"ExecDate": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"PipelineName": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"RowCopied": {
+							"value": {
+								"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.rowsCopied",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"RowRead": {
+							"value": {
+								"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.rowsRead",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"runid": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Source": {
+							"value": null,
+							"type": "String"
+						},
+						"Target": {
+							"value": null,
+							"type": "String"
+						},
+						"throughPut": {
+							"value": {
+								"value": "@activity('LOAD_USCB_S1201_MARTIAL_STATUS').output.throughPut",
+								"type": "Expression"
+							},
+							"type": "Decimal"
+						},
+						"triggerName": {
+							"value": {
+								"value": "@pipeline().TriggerName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"triggerTime": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Cencus_Output_Ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
 				"name": "Send email",
 				"type": "WebActivity",
 				"dependsOn": [
@@ -266,7 +370,7 @@
 			"name": "USCB"
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-12-08T06:10:36Z"
+		"lastPublishTime": "2021-12-13T12:36:13Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

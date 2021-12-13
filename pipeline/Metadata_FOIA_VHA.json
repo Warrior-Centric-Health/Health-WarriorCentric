@@ -116,7 +116,7 @@
 				]
 			},
 			{
-				"name": "Sucesses Log",
+				"name": "Log Sucesses",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -164,14 +164,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsCopied",
+								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsRead",
+								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -220,7 +220,111 @@
 				}
 			},
 			{
-				"name": "SendEmail",
+				"name": "Log Failure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Load_Metadata_FOIAVHA",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[Usp_audit_Log]",
+					"storedProcedureParameters": {
+						"adfName": {
+							"value": {
+								"value": "@pipeline().DataFactory",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Errors": {
+							"value": null,
+							"type": "String"
+						},
+						"ExecDate": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						},
+						"PipelineName": {
+							"value": {
+								"value": "@pipeline().Pipeline",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"RowCopied": {
+							"value": {
+								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsRead",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"RowRead": {
+							"value": {
+								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsCopied",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						},
+						"runid": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"Source": {
+							"value": null,
+							"type": "String"
+						},
+						"Target": {
+							"value": null,
+							"type": "String"
+						},
+						"throughPut": {
+							"value": {
+								"value": "@activity('Load_Metadata_FOIAVHA').output.throughPut",
+								"type": "Expression"
+							},
+							"type": "Decimal"
+						},
+						"triggerName": {
+							"value": {
+								"value": "@pipeline().TriggerName",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"triggerTime": {
+							"value": {
+								"value": "@pipeline().TriggerTime",
+								"type": "Expression"
+							},
+							"type": "DateTime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "Cencus_Output_Ls",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Mail send",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
@@ -252,7 +356,7 @@
 			"name": "USCB"
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-12-03T07:02:31Z"
+		"lastPublishTime": "2021-12-13T12:36:13Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
