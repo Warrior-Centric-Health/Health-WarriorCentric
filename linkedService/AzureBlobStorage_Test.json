@@ -1,5 +1,6 @@
 {
 	"name": "AzureBlobStorage_Test",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureBlobStorage",
