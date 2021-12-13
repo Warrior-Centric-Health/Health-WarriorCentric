@@ -5,21 +5,26 @@
 			"referenceName": "Cencus_Blob_Input_Ls",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Sheetname": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
-		"type": "DelimitedText",
+		"type": "Excel",
 		"typeProperties": {
+			"sheetName": {
+				"value": "@dataset().Sheetname",
+				"type": "Expression"
+			},
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "USCB_S1201_08_12_2019.csv",
+				"fileName": "USCB_S1201_08_12_2019 (2).xlsx",
 				"folderPath": "Files/USCB_S1201-MARTIAL STATUS",
 				"container": "data"
 			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
-			"firstRowAsHeader": true,
-			"quoteChar": "\""
+			"firstRowAsHeader": true
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }

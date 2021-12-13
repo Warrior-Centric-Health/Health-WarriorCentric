@@ -115,7 +115,7 @@
 				]
 			},
 			{
-				"name": "Log Success",
+				"name": "Success log",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
@@ -219,8 +219,8 @@
 				}
 			},
 			{
-				"name": "Log Failure",
-				"type": "SqlServerStoredProcedure",
+				"name": "Send email",
+				"type": "WebActivity",
 				"dependsOn": [
 					{
 						"activity": "Load_Metadata_Urban_Rural",
@@ -238,91 +238,12 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[Usp_audit_Log]",
-					"storedProcedureParameters": {
-						"adfName": {
-							"value": {
-								"value": "@pipeline().DataFactory",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"Errors": {
-							"value": {
-								"value": "@activity('Load_Metadata_Urban_Rural').output.errors[0].Message",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"ExecDate": {
-							"value": {
-								"value": "@pipeline().TriggerTime",
-								"type": "Expression"
-							},
-							"type": "DateTime"
-						},
-						"PipelineName": {
-							"value": {
-								"value": "@pipeline().Pipeline",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"RowCopied": {
-							"value": {
-								"value": "@activity('Load_Metadata_Urban_Rural').output.rowscopied",
-								"type": "Expression"
-							},
-							"type": "Int32"
-						},
-						"RowRead": {
-							"value": {
-								"value": "@activity('Load_Metadata_Urban_Rural').output.rowsread",
-								"type": "Expression"
-							},
-							"type": "Int32"
-						},
-						"runid": {
-							"value": {
-								"value": "@pipeline().RunId",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"Source": {
-							"value": null,
-							"type": "String"
-						},
-						"Target": {
-							"value": null,
-							"type": "String"
-						},
-						"throughPut": {
-							"value": {
-								"value": "@activity('Load_Metadata_Urban_Rural').output.throughput",
-								"type": "Expression"
-							},
-							"type": "Decimal"
-						},
-						"triggerName": {
-							"value": {
-								"value": "@pipeline().TriggerName",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"triggerTime": {
-							"value": {
-								"value": "@pipeline().TriggerTime",
-								"type": "Expression"
-							},
-							"type": "DateTime"
-						}
+					"url": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+					"method": "POST",
+					"body": {
+						"value": "{\n\"DatafactoryName\":\"@{pipeline().DataFactory}\",\n\"PipelineName\":\"@{pipeline().Pipeline}\",\n\"PipelineRunid\":\"@{pipeline().RunId}\",\n\"ErrorMessage\":\"@{activity('Load_Metadata_Urban_Rural').outputError.Message}\",\n\"Time\":\"@{utcnow()}\"\n}",
+						"type": "Expression"
 					}
-				},
-				"linkedServiceName": {
-					"referenceName": "Cencus_Output_Ls",
-					"type": "LinkedServiceReference"
 				}
 			}
 		],

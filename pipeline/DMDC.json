@@ -1,9 +1,9 @@
 {
-	"name": "Hospital_Facility",
+	"name": "DMDC",
 	"properties": {
 		"activities": [
 			{
-				"name": "Hospital_Facility_Load",
+				"name": "DMDC_Dataload",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -28,7 +28,6 @@
 					},
 					"sink": {
 						"type": "SqlDWSink",
-						"preCopyScript": "truncate table Hospital_Facility\n",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -37,246 +36,336 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "X",
+									"name": "HHS Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "X (Longitude)",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 18
-								}
-							},
-							{
-								"source": {
-									"name": "Y",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "Y (Latitude)",
-									"type": "Decimal",
-									"physicalType": "decimal",
-									"scale": 2,
-									"precision": 18
-								}
-							},
-							{
-								"source": {
-									"name": "COUNTYFIPS",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "COUNTYFIPS",
+									"name": "HHS Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "COUNTY",
+									"name": "AHA Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "COUNTY",
+									"name": "AHA Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "STATE",
+									"name": "TRICARE Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATE",
+									"name": "TRICARE Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "TYPE",
+									"name": "VIZIENT Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TYPE",
+									"name": "VIZIENT Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "OWNER",
+									"name": "USCB",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "OWNER",
+									"name": "USCB",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "NAME",
+									"name": "CCN Regions",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "NAME",
+									"name": "CCN Regions",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "ADDRESS",
+									"name": "Sort",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ADDRESS",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "CITY",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "CITY",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "ZIP",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "ZIP",
+									"name": "Sort",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "TELEPHONE",
+									"name": "Abbrv",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TELEPHONE",
+									"name": "State Abbrv",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "STATUS",
+									"name": "State",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "STATUS",
+									"name": "State Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "BEDS",
+									"name": " AD-Army ",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AD-Army",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Navy ",
+									"type": "String"
+								},
+								"sink": {
+									"name": "AD-Navy",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Marine Corps ",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "BEDS",
+									"name": "AD-Marine Corps",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Air Force ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AD-Air Force",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Coast Guard ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AD-Coast Guard",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " AD-Space Force ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AD-Space Force",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " Active Duty - TOTAL ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Active Duty - TOTAL",
 									"type": "Int32",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "NAICS_CODE",
+									"name": "Army NG",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "NAICS_CODE",
+									"name": "Army NG",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Army Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Army Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Navy Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Navy Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "USMC Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "USMC Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Air Force NG",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Air Force NG",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Air Force Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Air Force Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Coast Guard Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Coast Guard Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Space Force Res",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Space Force Res",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "National Guard - TOTAL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "National Guard - TOTAL",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": " Reserves - TOTAL ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Reserves - TOTAL",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Natl Guard & Reserves - TOTAL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Natl Guard & Reserves - TOTAL",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "TOTAL Force",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TOTAL Force",
 									"type": "Int32",
 									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "NAICS_DESC",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "NAICS_DESC",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "TRAUMA",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "TRAUMA",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "HELIPAD",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "HELIPAD",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "WEBSITE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "WEBSITE",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "SOURCE",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "SOURCE",
-									"type": "String",
-									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -301,23 +390,23 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Hospital_IP_Ds",
+						"referenceName": "DMDC_IP_DS",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Hospital_OP_DS",
+						"referenceName": "DMDC_OP_DS",
 						"type": "DatasetReference"
 					}
 				]
 			},
 			{
-				"name": "Sucesses Log",
+				"name": "Log Sucesses",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Hospital_Facility_Load",
+						"activity": "DMDC_Dataload",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -332,7 +421,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "Usp_audit_Log",
+					"storedProcedureName": "[dbo].[Usp_audit_Log]",
 					"storedProcedureParameters": {
 						"adfName": {
 							"value": {
@@ -361,14 +450,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('Hospital_Facility_Load').output.rowsRead",
+								"value": "@activity('DMDC_Dataload').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('Hospital_Facility_Load').output.rowsCopied",
+								"value": "@activity('DMDC_Dataload').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -390,7 +479,7 @@
 						},
 						"throughPut": {
 							"value": {
-								"value": "@activity('Hospital_Facility_Load').output.throughPut",
+								"value": "@activity('DMDC_Dataload').output.throughPut",
 								"type": "Expression"
 							},
 							"type": "Decimal"
@@ -412,16 +501,16 @@
 					}
 				},
 				"linkedServiceName": {
-					"referenceName": "LS_WCH_DEV",
+					"referenceName": "Cencus_Output_Ls",
 					"type": "LinkedServiceReference"
 				}
 			},
 			{
-				"name": "SendEmail",
+				"name": "Mail send",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "Hospital_Facility_Load",
+						"activity": "DMDC_Dataload",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -442,7 +531,7 @@
 					},
 					"method": "POST",
 					"body": {
-						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('Hospital_Facility_Load').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('DMDC_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
 						"type": "Expression"
 					}
 				}
@@ -452,7 +541,7 @@
 			"name": "USCB"
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-12-03T05:06:20Z"
+		"lastPublishTime": "2021-12-06T09:26:47Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
