@@ -5,11 +5,20 @@
 		"factoryName": {
 			"value": "WCH-adfdev"
 		},
+		"AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName": {
+			"value": "DEV-BLOB-Connect"
+		},
+		"AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName": {
+			"value": "DEV-BLOB-Connect"
+		},
 		"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
 			"value": "KV-BLOB-SAS-SECRET"
 		},
 		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
 			"value": "SEC-DEV-DB"
+		},
+		"Incr_Test_properties_typeProperties_connectionString_secretName": {
+			"value": "DEV-BLOB-Connect"
 		},
 		"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
 			"value": "KV-BLOB-SAS-SECRET"

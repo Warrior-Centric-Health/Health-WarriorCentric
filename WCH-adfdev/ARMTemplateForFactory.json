@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "WCH-adfdev"
 		},
+		"AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "DEV-BLOB-Connect"
+		},
+		"AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "DEV-BLOB-Connect"
+		},
 		"Cencus_Blob_Input_Ls_properties_typeProperties_sasUri_secretName": {
 			"type": "string",
 			"defaultValue": "KV-BLOB-SAS-SECRET"
@@ -14,6 +22,10 @@
 		"Cencus_Output_Ls_properties_typeProperties_connectionString_secretName": {
 			"type": "string",
 			"defaultValue": "SEC-DEV-DB"
+		},
+		"Incr_Test_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "DEV-BLOB-Connect"
 		},
 		"LS_BLOB_SAS_properties_typeProperties_sasUri_secretName": {
 			"type": "string",
@@ -2733,7 +2745,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-06T09:26:47Z"
+				"lastPublishTime": "2021-12-08T11:38:00Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DMDC_IP_DS')]",
@@ -7318,7 +7330,8 @@
 				"folder": {
 					"name": "USCB"
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2021-12-08T11:38:00Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_IP_DS')]",
@@ -9436,6 +9449,50 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1_Test2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LS_KV_BLOB",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('AzureBlobStorage1_Test2_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_KV_BLOB')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage_Test')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LS_KV_BLOB",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('AzureBlobStorage_Test_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_KV_BLOB')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Cencus_Blob_Input_Ls')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -9477,6 +9534,28 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_KV_DB')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Incr_Test')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "LS_KV_BLOB",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('Incr_Test_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_KV_BLOB')]"
 			]
 		},
 		{
@@ -9574,6 +9653,46 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/LS_KV_WCH_DEV_DB')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Trigger_34h')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 5,
+						"startTime": "2021-12-10T07:38:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Trigger_8ek')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 2,
+						"startTime": "2021-12-10T06:33:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/new_trig')]",
