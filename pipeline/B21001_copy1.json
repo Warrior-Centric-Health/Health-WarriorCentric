@@ -226,8 +226,7 @@
 							},
 							{
 								"source": {
-									"name": "Year",
-									"type": "String",
+									"name": "B21001_Year",
 									"physicalType": "String"
 								},
 								"sink": {
