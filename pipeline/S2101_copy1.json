@@ -474,7 +474,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "S2101_OP_DS",
+						"referenceName": "S2101_Test",
 						"type": "DatasetReference"
 					}
 				]
