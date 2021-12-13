@@ -81,7 +81,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-11-10T07:59:38Z"
+				"lastPublishTime": "2021-12-13T12:08:01Z"
 			},
 			"dependsOn": []
 		},
@@ -216,7 +216,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-11-10T07:56:28Z"
+				"lastPublishTime": "2021-12-13T12:08:08Z"
 			},
 			"dependsOn": []
 		},
@@ -351,7 +351,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-11-10T08:04:02Z"
+				"lastPublishTime": "2021-12-13T12:08:01Z"
 			},
 			"dependsOn": []
 		},
@@ -561,7 +561,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-08T11:38:00Z"
+				"lastPublishTime": "2021-12-13T12:08:01Z"
 			},
 			"dependsOn": []
 		},
@@ -684,7 +684,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-06T09:28:11Z"
+				"lastPublishTime": "2021-12-13T12:08:02Z"
 			},
 			"dependsOn": []
 		},
@@ -1271,7 +1271,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-03T11:29:29Z"
+				"lastPublishTime": "2021-12-13T12:08:04Z"
 			},
 			"dependsOn": []
 		}
