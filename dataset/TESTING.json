@@ -1,0 +1,82 @@
+{
+	"name": "TESTING",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TV_WOSCD",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_WSCD",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD10",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD10TO20",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD30or40",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD50or60",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_PER_SCD70P",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TV_SCDNOT",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tract",
+				"type": "nvarchar"
+			},
+			{
+				"name": "B21100_Year",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TEST_AL_B21100"
+		}
+	}
+}
