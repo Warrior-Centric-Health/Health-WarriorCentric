@@ -561,7 +561,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21001_IP_DS')]",
@@ -1038,7 +1038,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21100_IP_DS')]",
@@ -1473,7 +1473,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:03Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/CHR_IP_DS')]",
@@ -1610,7 +1610,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/County_Ref_IP_DS')]",
@@ -2008,7 +2008,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:12Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Tract_Ref_IP_Ds')]",
@@ -2085,7 +2085,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:11Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Country_State_County_Zipcode_Ref_IP_DS')]",
@@ -2745,7 +2745,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:02Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DMDC_IP_DS')]",
@@ -3171,7 +3171,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:12Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/FOIAVHA_IP_DS')]",
@@ -3442,7 +3442,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:03Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/GDX_IP_DS')]",
@@ -4017,7 +4017,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:12Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Hospital_IP_Ds')]",
@@ -4372,7 +4372,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/LGBTQ_IP_DS')]",
@@ -4762,7 +4762,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/METADATA_S1201_MARTIAL_STATUS_IP_DS')]",
@@ -5034,7 +5034,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:17Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_GDX_IP_DS')]",
@@ -5173,7 +5173,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:02Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_CHR_IP_DS')]",
@@ -5547,7 +5547,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:04Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_FOIAVHA_IP_DS')]",
@@ -5896,7 +5896,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:02Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_URBAN_RURAL_IP_DS')]",
@@ -6390,7 +6390,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S2101_IP_DS')]",
@@ -6765,7 +6765,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/URBAN_RURAL_IP_DS')]",
@@ -6842,7 +6842,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21001_Metadata_IP_DS')]",
@@ -6980,7 +6980,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:08Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21100_Metadata_IP_DS')]",
@@ -7118,7 +7118,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S2101_Metadata_IP_DS')]",
@@ -7331,7 +7331,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:01Z"
+				"lastPublishTime": "2021-12-13T12:36:12Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_IP_DS')]",
@@ -7458,7 +7458,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:02Z"
+				"lastPublishTime": "2021-12-13T12:36:12Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_State_Ref_Input')]",
@@ -8048,7 +8048,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T12:08:04Z"
+				"lastPublishTime": "2021-12-13T12:36:13Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USPS_ZIPCODE_IP_DS')]",
