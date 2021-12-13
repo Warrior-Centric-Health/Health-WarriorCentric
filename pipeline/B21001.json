@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "load_B21001",
+				"name": "load_B21001.",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -254,7 +254,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "load_B21001",
+						"activity": "load_B21001.",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -358,7 +358,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "load_B21001",
+						"activity": "load_B21001.",
 						"dependencyConditions": [
 							"Failed"
 						]
