@@ -1,0 +1,73 @@
+{
+	"name": "TEST_1201",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [
+			{
+				"name": "GEO_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TMV_PER_MAR",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "TFV_PER_MAR",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 2
+			},
+			{
+				"name": "State Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "State Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "County Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "County Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Tract Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Tract Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "File Source Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Test_S1201"
+		}
+	}
+}
