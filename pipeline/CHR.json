@@ -311,7 +311,7 @@
 				}
 			},
 			{
-				"name": "Log Sucesses_copy1",
+				"name": "Log Failure",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
