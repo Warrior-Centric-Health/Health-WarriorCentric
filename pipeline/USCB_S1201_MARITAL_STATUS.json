@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "LOAD_USCB_S1201_MARITAL_STATUs",
+				"name": "LOAD_USCB_S1201_MARITAL_STATUS",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -187,7 +187,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "LOAD_USCB_S1201_MARITAL_STATUs",
+						"activity": "LOAD_USCB_S1201_MARITAL_STATUS",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -291,7 +291,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "LOAD_USCB_S1201_MARITAL_STATUs",
+						"activity": "LOAD_USCB_S1201_MARITAL_STATUS",
 						"dependencyConditions": [
 							"Failed"
 						]
