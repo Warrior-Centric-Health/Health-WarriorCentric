@@ -40,6 +40,8 @@
 											"value": "@utcnow()",
 											"type": "Expression"
 										},
+										"wildcardFolderPath": "Files / USCB_S1201-MARTIAL STATUS",
+										"wildcardFileName": "*.xlsx",
 										"enablePartitionDiscovery": false
 									}
 								},
