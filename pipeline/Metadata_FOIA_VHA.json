@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Load_Metadata_FOIAVHA",
+				"name": "Load_Metadata_FOIAVH",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -120,7 +120,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Load_Metadata_FOIAVHA",
+						"activity": "Load_Metadata_FOIAVH",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -328,7 +328,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "Load_Metadata_FOIAVHA",
+						"activity": "Load_Metadata_FOIAVH",
 						"dependencyConditions": [
 							"Failed"
 						]
