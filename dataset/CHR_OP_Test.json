@@ -1,0 +1,16 @@
+{
+	"name": "CHR_OP_Test",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_WCH_DEV",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "CHR_Test"
+		}
+	}
+}

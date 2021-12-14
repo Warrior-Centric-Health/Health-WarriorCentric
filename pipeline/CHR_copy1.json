@@ -170,7 +170,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "CHR_OP_DS",
+						"referenceName": "CHR_OP_Test",
 						"type": "DatasetReference"
 					}
 				]
