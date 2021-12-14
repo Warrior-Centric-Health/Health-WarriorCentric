@@ -280,7 +280,7 @@
 				}
 			},
 			{
-				"name": "SendEmail",
+				"name": "Mail send",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
