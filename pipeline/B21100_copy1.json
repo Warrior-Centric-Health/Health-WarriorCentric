@@ -1,9 +1,9 @@
 {
-	"name": "B21001_copy1",
+	"name": "B21100_copy1",
 	"properties": {
 		"activities": [
 			{
-				"name": "load_B21001",
+				"name": "B21100_Dataload",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,7 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "Files/B21001/Year/2019",
+							"wildcardFolderPath": "Files/B21100/Year/2019",
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
@@ -62,121 +62,89 @@
 							},
 							{
 								"source": {
-									"name": "B21001_008E",
+									"name": "B21100_009E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TMV_018_AGE_18TO34",
-									"type": "Int32",
+									"name": "TV_SCDNOT",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21001_011E",
+									"name": "B21100_002E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TMV_018_AGE_35TO54",
-									"type": "Int32",
+									"name": "TV_WOSCD",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21001_014E",
+									"name": "B21100_003E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TMV_018_AGE_55TO64",
-									"type": "Int32",
+									"name": "TV_WSCD",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21001_017E",
+									"name": "B21100_004E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TMV_018_AGE_65TO74",
-									"type": "Int32",
+									"name": "TV_PER_SCD10",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21001_020E",
+									"name": "B21100_005E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TMV_018_AGE_75P",
-									"type": "Int32",
+									"name": "TV_PER_SCD10TO20",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21001_026E",
+									"name": "B21100_006E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TFV_018_AGE_18TO34",
-									"type": "Int32",
+									"name": "TV_PER_SCD30or40",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21001_029E",
+									"name": "B21100_007E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TFV_018_AGE_35TO54",
-									"type": "Int32",
+									"name": "TV_PER_SCD50or60",
 									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "B21001_032E",
+									"name": "B21100_008E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "TFV_018_AGE_55TO64",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "B21001_035E",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "TFV_018_AGE_65TO74",
-									"type": "Int32",
-									"physicalType": "int"
-								}
-							},
-							{
-								"source": {
-									"name": "B21001_038E",
-									"type": "String",
-									"physicalType": "String"
-								},
-								"sink": {
-									"name": "TFV_018_AGE_75P",
-									"type": "Int32",
+									"name": "TV_PER_SCD70P",
 									"physicalType": "int"
 								}
 							},
@@ -188,8 +156,8 @@
 								},
 								"sink": {
 									"name": "State",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -200,8 +168,8 @@
 								},
 								"sink": {
 									"name": "County",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -212,18 +180,18 @@
 								},
 								"sink": {
 									"name": "Tract",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Year",
+									"name": "B21100_Year",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "B21001_Year",
+									"name": "B21100_Year",
 									"type": "Int32",
 									"physicalType": "int"
 								}
@@ -238,13 +206,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "B21001_IP_DS",
+						"referenceName": "B21100_IP_DS",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "B21001_OP_DS",
+						"referenceName": "B21100_OP_DS",
 						"type": "DatasetReference"
 					}
 				]
@@ -254,7 +222,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "load_B21001",
+						"activity": "B21100_Dataload",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -298,14 +266,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('load_B21001').output.rowsRead",
+								"value": "@activity('B21100_Dataload').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('load_B21001').output.rowsCopied",
+								"value": "@activity('B21100_Dataload').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -327,7 +295,7 @@
 						},
 						"throughPut": {
 							"value": {
-								"value": "@activity('load_B21001').output.throughPut",
+								"value": "@activity('B21100_Dataload').output.throughPut",
 								"type": "Expression"
 							},
 							"type": "Decimal"
@@ -354,11 +322,11 @@
 				}
 			},
 			{
-				"name": "SendEmail",
+				"name": "Mail send",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "load_B21001",
+						"activity": "B21100_Dataload",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -379,7 +347,7 @@
 					},
 					"method": "POST",
 					"body": {
-						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('load_B21001').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('B21100_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
 						"type": "Expression"
 					}
 				}
@@ -389,7 +357,7 @@
 			"name": "USCB"
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-12-03T08:20:16Z"
+		"lastPublishTime": "2021-12-06T09:22:55Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
