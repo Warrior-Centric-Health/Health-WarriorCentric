@@ -254,7 +254,7 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Log Sucesses",
+						"activity": "Mail send",
 						"dependencyConditions": [
 							"Succeeded"
 						]
