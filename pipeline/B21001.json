@@ -1,9 +1,9 @@
 {
-	"name": "Metadata_FOIA_VHA",
+	"name": "B21001",
 	"properties": {
 		"activities": [
 			{
-				"name": "Load_Metadata_FOIAVHA",
+				"name": "load_B21001",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,6 +20,8 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": "Files/B21001/Year/2019",
+							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -36,62 +38,194 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "Required Column Names(RAW)",
+									"name": "GEO_ID",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "RAW Data ColumnName",
+									"name": "GEO_ID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Meta Data",
+									"name": "NAME",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Metadata ColumnName",
+									"name": "NAME",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
 							},
 							{
 								"source": {
-									"name": "Nate Provided Names (Copy from the provided sheet ) ",
+									"name": "B21001_008E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Display Name ",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "TMV_018_AGE_18TO34",
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "User Friendly Column Names(Data)- PROCESSED",
+									"name": "B21001_011E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "User Friendly ColumnNames Data_PROCESSED",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"name": "TMV_018_AGE_35TO54",
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							},
 							{
 								"source": {
-									"name": "User Friendly Column Names(Report)",
+									"name": "B21001_014E",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "User Friendly ColumnNames_Report",
+									"name": "TMV_018_AGE_55TO64",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21001_017E",
 									"type": "String",
-									"physicalType": "nvarchar"
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TMV_018_AGE_65TO74",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21001_020E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TMV_018_AGE_75P",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21001_026E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TFV_018_AGE_18TO34",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21001_029E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TFV_018_AGE_35TO54",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21001_032E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TFV_018_AGE_55TO64",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21001_035E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TFV_018_AGE_65TO74",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "B21001_038E",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TFV_018_AGE_75P",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "State",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "County",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "County",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Tract",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Tract",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Year",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "B21001_Year",
+									"type": "Int32",
+									"physicalType": "int"
 								}
 							}
 						],
@@ -104,13 +238,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Metadata_FOIAVHA_IP_DS",
+						"referenceName": "B21001_IP_DS",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Metadata_FOIAVHA_OP_DS",
+						"referenceName": "B21001_OP_DS",
 						"type": "DatasetReference"
 					}
 				]
@@ -120,113 +254,9 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Load_Metadata_FOIAVHA",
+						"activity": "load_B21001",
 						"dependencyConditions": [
 							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"storedProcedureName": "Usp_audit_Log",
-					"storedProcedureParameters": {
-						"adfName": {
-							"value": {
-								"value": "@pipeline().DataFactory",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"Errors": {
-							"value": null,
-							"type": "String"
-						},
-						"ExecDate": {
-							"value": {
-								"value": "@pipeline().TriggerTime",
-								"type": "Expression"
-							},
-							"type": "DateTime"
-						},
-						"PipelineName": {
-							"value": {
-								"value": "@pipeline().Pipeline",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"RowCopied": {
-							"value": {
-								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsRead",
-								"type": "Expression"
-							},
-							"type": "Int32"
-						},
-						"RowRead": {
-							"value": {
-								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsCopied",
-								"type": "Expression"
-							},
-							"type": "Int32"
-						},
-						"runid": {
-							"value": {
-								"value": "@pipeline().RunId",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"Source": {
-							"value": null,
-							"type": "String"
-						},
-						"Target": {
-							"value": null,
-							"type": "String"
-						},
-						"throughPut": {
-							"value": {
-								"value": "@activity('Load_Metadata_FOIAVHA').output.throughPut",
-								"type": "Expression"
-							},
-							"type": "Decimal"
-						},
-						"triggerName": {
-							"value": {
-								"value": "@pipeline().TriggerName",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"triggerTime": {
-							"value": {
-								"value": "@pipeline().TriggerTime",
-								"type": "Expression"
-							},
-							"type": "DateTime"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "LS_WCH_DEV",
-					"type": "LinkedServiceReference"
-				}
-			},
-			{
-				"name": "Log Failure",
-				"type": "SqlServerStoredProcedure",
-				"dependsOn": [
-					{
-						"activity": "Load_Metadata_FOIAVHA",
-						"dependencyConditions": [
-							"Failed"
 						]
 					}
 				],
@@ -268,14 +298,14 @@
 						},
 						"RowCopied": {
 							"value": {
-								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsRead",
+								"value": "@activity('load_B21001').output.rowsRead",
 								"type": "Expression"
 							},
 							"type": "Int32"
 						},
 						"RowRead": {
 							"value": {
-								"value": "@activity('Load_Metadata_FOIAVHA').output.rowsCopied",
+								"value": "@activity('load_B21001').output.rowsCopied",
 								"type": "Expression"
 							},
 							"type": "Int32"
@@ -297,7 +327,7 @@
 						},
 						"throughPut": {
 							"value": {
-								"value": "@activity('Load_Metadata_FOIAVHA').output.throughPut",
+								"value": "@activity('load_B21001').output.throughPut",
 								"type": "Expression"
 							},
 							"type": "Decimal"
@@ -324,11 +354,11 @@
 				}
 			},
 			{
-				"name": "Mail send",
+				"name": "SendEmail",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "Load_Metadata_FOIAVHA",
+						"activity": "load_B21001",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -343,10 +373,13 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+					"url": {
+						"value": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+						"type": "Expression"
+					},
 					"method": "POST",
 					"body": {
-						"value": "{\n\"DatafactoryName\":\"@{pipeline().DataFactory}\",\n\"PipelineName\":\"@{pipeline().Pipeline}\",\n\"PipelineRunid\":\"@{pipeline().RunId}\",\n\"ErrorMessage\":\"@{activity('Load_Metadata_FOIAVHA').Error.Message}\",\n\"Time\":\"@{utcnow()}\"\n}",
+						"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('load_B21001').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
 						"type": "Expression"
 					}
 				}
@@ -356,7 +389,7 @@
 			"name": "USCB"
 		},
 		"annotations": [],
-		"lastPublishTime": "2021-12-15T09:12:46Z"
+		"lastPublishTime": "2021-12-15T10:09:44Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
