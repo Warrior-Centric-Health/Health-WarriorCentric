@@ -561,7 +561,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:51Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21001_IP_DS')]",
@@ -1038,7 +1038,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21100_IP_DS')]",
@@ -1473,7 +1473,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/CHR_IP_DS')]",
@@ -1610,11 +1610,284 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/County_Ref_IP_DS')]",
 				"[concat(variables('factoryId'), '/datasets/County_Ref_OP_DS')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Country_State_County_Ref_copy1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Country_State_County_Ref_Dataload",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "SqlDWSink"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Country",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Country",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "State Code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State Code(FIPS CODE)",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "State Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "State Name ",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "County Code",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "County CODE",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "County Name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "County Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "County_Ref_IP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "County_Ref_OP_DS",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					},
+					{
+						"name": "Log Sucesses",
+						"type": "SqlServerStoredProcedure",
+						"dependsOn": [
+							{
+								"activity": "Country_State_County_Ref_Dataload",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"storedProcedureName": "[[dbo].[Usp_audit_Log]",
+							"storedProcedureParameters": {
+								"adfName": {
+									"value": {
+										"value": "@pipeline().DataFactory",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Errors": {
+									"value": null,
+									"type": "String"
+								},
+								"ExecDate": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								},
+								"PipelineName": {
+									"value": {
+										"value": "@pipeline().Pipeline",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"RowCopied": {
+									"value": {
+										"value": "@activity('Country_State_County_Ref_Dataload').output.rowsRead",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"RowRead": {
+									"value": {
+										"value": "@activity('Country_State_County_Ref_Dataload').output.rowsCopied",
+										"type": "Expression"
+									},
+									"type": "Int32"
+								},
+								"runid": {
+									"value": {
+										"value": "@pipeline().RunId",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"Source": {
+									"value": null,
+									"type": "String"
+								},
+								"Target": {
+									"value": null,
+									"type": "String"
+								},
+								"throughPut": {
+									"value": {
+										"value": "@activity('Country_State_County_Ref_Dataload').output.throughPut",
+										"type": "Expression"
+									},
+									"type": "Decimal"
+								},
+								"triggerName": {
+									"value": {
+										"value": "@pipeline().TriggerName",
+										"type": "Expression"
+									},
+									"type": "String"
+								},
+								"triggerTime": {
+									"value": {
+										"value": "@pipeline().TriggerTime",
+										"type": "Expression"
+									},
+									"type": "DateTime"
+								}
+							}
+						},
+						"linkedServiceName": {
+							"referenceName": "Cencus_Output_Ls",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Mail send",
+						"type": "WebActivity",
+						"dependsOn": [
+							{
+								"activity": "Country_State_County_Ref_Dataload",
+								"dependencyConditions": [
+									"Failed"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"url": {
+								"value": "https://prod-13.northcentralus.logic.azure.com:443/workflows/99d17a4cd2694ca29e61f46ebc200cb2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=EUQifdjPOnAERqyFKg0b1D0TJWAplWCw0gdRUAC4XKU",
+								"type": "Expression"
+							},
+							"method": "POST",
+							"headers": {},
+							"body": {
+								"value": "{\n\"DataFactoryName\" :\"@{pipeline().DataFactory}\",\n\"PipelineName\" :\"@{pipeline().Pipeline}\",\n\"ErrorMessage\" :\"@{activity('Country_State_County_Ref_Dataload').Error.Message}\",\n\"PipelineRunID\" :\"@{pipeline().RunId}\",\n\"Time\" :\"@{utcnow()}\"\n}",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "USCB"
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-12-06T09:26:47Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/County_Ref_IP_DS')]",
+				"[concat(variables('factoryId'), '/datasets/County_Ref_OP_DS')]",
+				"[concat(variables('factoryId'), '/linkedServices/Cencus_Output_Ls')]"
 			]
 		},
 		{
@@ -2008,7 +2281,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:51Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Tract_Ref_IP_Ds')]",
@@ -2085,7 +2358,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Country_State_County_Zipcode_Ref_IP_DS')]",
@@ -2745,7 +3018,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DMDC_IP_DS')]",
@@ -3171,7 +3444,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/FOIAVHA_IP_DS')]",
@@ -3442,7 +3715,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/GDX_IP_DS')]",
@@ -4017,7 +4290,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Hospital_IP_Ds')]",
@@ -4372,7 +4645,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/LGBTQ_IP_DS')]",
@@ -4762,7 +5035,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/METADATA_S1201_MARTIAL_STATUS_IP_DS')]",
@@ -5034,7 +5307,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_GDX_IP_DS')]",
@@ -5173,7 +5446,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_CHR_IP_DS')]",
@@ -5547,7 +5820,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_FOIAVHA_IP_DS')]",
@@ -5896,7 +6169,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Metadata_URBAN_RURAL_IP_DS')]",
@@ -6390,7 +6663,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S2101_IP_DS')]",
@@ -6765,7 +7038,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/URBAN_RURAL_IP_DS')]",
@@ -6842,7 +7115,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:56Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21001_Metadata_IP_DS')]",
@@ -6980,7 +7253,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:51Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/B21100_Metadata_IP_DS')]",
@@ -7118,7 +7391,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:51Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S2101_Metadata_IP_DS')]",
@@ -7331,7 +7604,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:34Z"
+				"lastPublishTime": "2021-12-14T14:08:51Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_S1201_MARTIAL_STATUS_IP_DS')]",
@@ -7458,7 +7731,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:51Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USCB_State_Ref_Input')]",
@@ -8048,7 +8321,7 @@
 					"name": "USCB"
 				},
 				"annotations": [],
-				"lastPublishTime": "2021-12-13T14:50:35Z"
+				"lastPublishTime": "2021-12-14T14:08:52Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/USPS_ZIPCODE_IP_DS')]",
