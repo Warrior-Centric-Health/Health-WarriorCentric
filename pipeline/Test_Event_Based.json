@@ -1,0 +1,9 @@
+{
+	"name": "Test_Event_Based",
+	"properties": {
+		"folder": {
+			"name": "USCB"
+		},
+		"annotations": []
+	}
+}
