@@ -1,25 +1,16 @@
 {
-	"name": "Event_Test",
+	"name": "Event_Dest_Test",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Cencus_Blob_Input_Ls",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"FileName": {
-				"type": "string"
-			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": {
-					"value": "@dataset().FileName",
-					"type": "Expression"
-				},
-				"folderPath": "INPUT",
+				"folderPath": "OUTPUT",
 				"container": "cencusdata"
 			},
 			"columnDelimiter": ",",
