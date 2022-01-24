@@ -1,19 +1,9 @@
 {
-	"name": "test_trig",
+	"name": "trigger1_Test5",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
-		"pipelines": [
-			{
-				"pipelineReference": {
-					"referenceName": "pipeline1",
-					"type": "PipelineReference"
-				},
-				"parameters": {
-					"Filenamep": "triggerBody().FileName"
-				}
-			}
-		],
+		"pipelines": [],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
 			"blobPathBeginsWith": "/cencusdata/blobs/INPUT/",

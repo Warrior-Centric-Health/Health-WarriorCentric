@@ -1,16 +1,16 @@
 {
-	"name": "test_trig",
+	"name": "trigger_newtest_db",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipeline1",
+					"referenceName": "pipeline1_copy1",
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"Filenamep": "triggerBody().FileName"
+					"Filenamep": "triggerBody().fileName"
 				}
 			}
 		],

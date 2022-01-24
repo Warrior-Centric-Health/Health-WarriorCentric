@@ -20,6 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": "INPUT",
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
@@ -76,6 +77,8 @@
 		"folder": {
 			"name": "USCB"
 		},
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2021-12-23T16:42:39Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

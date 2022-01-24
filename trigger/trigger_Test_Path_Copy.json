@@ -1,22 +1,22 @@
 {
-	"name": "test_trig",
+	"name": "trigger_Test_Path_Copy",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipeline1",
+					"referenceName": "pipeline1_copy2_Test2_Trigger",
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"Filenamep": "triggerBody().FileName"
+					"Filenamep": "triggerBody().fileName"
 				}
 			}
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/cencusdata/blobs/INPUT/",
+			"blobPathBeginsWith": "/cencusdata/blobs/INPUT/INPUT_Test/",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/bb6de48e-f806-4129-ab7f-4f5c97c177cb/resourceGroups/RG_Nate/providers/Microsoft.Storage/storageAccounts/wchraw",

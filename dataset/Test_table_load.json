@@ -1,0 +1,17 @@
+{
+	"name": "Test_table_load",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cencus_Output_Ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlDWTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AL_S2101_Test"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
